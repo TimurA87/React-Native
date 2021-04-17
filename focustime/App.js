@@ -52,8 +52,6 @@ export default function App() {
     saveFocusHistory();
   }, [focusHistory]);
 
-  console.log(focusHistory);
-
   return (
     <View style={styles.container}>
       {focusSubject ? (
