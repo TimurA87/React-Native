@@ -10,6 +10,8 @@ import { RestaurantScreens } from "./src/features/restaurants/screens/restaturan
 import { theme } from "./src/infrastructure/theme";
 import { SafeArea } from "./src/components/utility/safe-area.component";
 
+import { restaurantsRequest } from "./src/services/restaurants/restaurants.service";
+
 import {
   useFonts as useOswald,
   Oswald_400Regular,
