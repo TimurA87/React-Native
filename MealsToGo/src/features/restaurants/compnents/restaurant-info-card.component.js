@@ -25,7 +25,7 @@ export const RestaurantInfoCard = ({ restaraunt = {} }) => {
     photos = [
       "https://foodiesfeed.com/wp-content/uploads/2021/01/bowl-with-fermented-vegetables-in-a-korean-restaurant.jpg",
     ],
-    address = "100 some random street",
+    vicinity = "100 some random street",
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
@@ -56,7 +56,7 @@ export const RestaurantInfoCard = ({ restaraunt = {} }) => {
             </Spacer>
           </SectionEnd>
         </Section>
-        <Address>{address}</Address>
+        <Address>{vicinity}</Address>
       </Info>
     </RestaurantCard>
   );
