@@ -10,14 +10,13 @@ import { RestaurantScreens } from "./src/features/restaurants/screens/restaturan
 import { theme } from "./src/infrastructure/theme";
 import { SafeArea } from "./src/components/utility/safe-area.component";
 
-import { restaurantsRequest } from "./src/services/restaurants/restaurants.service";
-
 import {
   useFonts as useOswald,
   Oswald_400Regular,
 } from "@expo-google-fonts/oswald";
 
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
@@ -63,19 +62,21 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={(route) => createScreenOptions(route)}
-            tabBarOptions={{
-              activeTintColor: "tomato",
-              inactiveTintColor: "gray",
-            }}
-          >
-            <Tab.Screen name="Restaurants" component={RestaurantScreens} />
-            <Tab.Screen name="Settings" component={Settings} />
-            <Tab.Screen name="Map" component={Maps} />
-          </Tab.Navigator>
-        </NavigationContainer>
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={(route) => createScreenOptions(route)}
+              tabBarOptions={{
+                activeTintColor: "tomato",
+                inactiveTintColor: "gray",
+              }}
+            >
+              <Tab.Screen name="Restaurants" component={RestaurantScreens} />
+              <Tab.Screen name="Settings" component={Settings} />
+              <Tab.Screen name="Map" component={Maps} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </RestaurantsContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
