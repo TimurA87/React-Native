@@ -18,7 +18,7 @@ import {
   Address,
 } from "./restaurant-info-card.styles";
 
-export const RestaurantInfoCard = ({ restaraunt = {} }) => {
+export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Some Restaraunt",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -30,7 +30,7 @@ export const RestaurantInfoCard = ({ restaraunt = {} }) => {
     rating = 4,
     isClosedTemporarily = true,
     placeId,
-  } = restaraunt;
+  } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
