@@ -6,8 +6,10 @@ import { ActivityIndicator, Colors } from "react-native-paper";
 import { RestaurantInfoCard } from "../compnents/restaurant-info-card.component";
 import { SafeArea } from "../../../components/utility/safe-area.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
-import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../compnents/search.component";
+
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
+import { FavouritesContext } from "../../../services/favorites/favourites.context";
 
 const RestarauntList = styled(FlatList).attrs({
   contentContainerStyle: {
@@ -27,6 +29,7 @@ const LoadingContainer = styled.View`
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+  const { favourites } = useContext(FavouritesContext);
   return (
     <SafeArea>
       {isLoading && (
