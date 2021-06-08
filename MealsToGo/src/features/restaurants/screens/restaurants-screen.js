@@ -3,15 +3,17 @@ import { TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { ActivityIndicator, Colors } from "react-native-paper";
 
-import { RestaurantInfoCard } from "../compnents/restaurant-info-card.component";
-import { RestarauntList } from "../compnents/restaurant-list.styles";
 import { SafeArea } from "../../../components/utility/safe-area.component";
+import { FadeInView } from "../../../components/animation/fade.animation";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
+
 import { Search } from "../compnents/search.component";
+import { RestarauntList } from "../compnents/restaurant-list.styles";
+import { RestaurantInfoCard } from "../compnents/restaurant-info-card.component";
 
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { FavouritesContext } from "../../../services/favorites/favourites.context";
-import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
 
 const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
@@ -60,7 +62,9 @@ export const RestaurantsScreen = ({ navigation }) => {
               }}
             >
               <Spacer position="bottom" size="large">
-                <RestaurantInfoCard restaurant={item} />
+                <FadeInView>
+                  <RestaurantInfoCard restaurant={item} />
+                </FadeInView>
               </Spacer>
             </TouchableOpacity>
           );
