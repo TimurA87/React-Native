@@ -1,5 +1,4 @@
-import React, { useState, createContext, useEffect } from "react";
-import { useContext } from "react/cjs/react.development";
+import React, { useState, createContext, useEffect, useContext } from "react";
 import { LocationContext } from "../location/location.context";
 
 import {
