@@ -1,16 +1,28 @@
 import camelize from "camelize";
-import { locations } from "./location.mock";
+
+//import { locations } from "./location.mock";
+
+// export const LocationRequest = (searchTerm) => {
+//   return new Promise((resolve, reject) => {
+//     const locationMock = locations[searchTerm];
+
+//     if (!locationMock) {
+//       reject("location not found");
+//     }
+
+//     resolve(locationMock);
+//   });
+// };
 
 export const LocationRequest = (searchTerm) => {
-  return new Promise((resolve, reject) => {
-    const locationMock = locations[searchTerm];
-
-    if (!locationMock) {
-      reject("location not found");
-    }
-
-    resolve(locationMock);
-  });
+  console.log(searchTerm);
+  return fetch(
+    `http://127.0.0.1:5001/mealstogo-83ce2/us-central1/geocode?city=${searchTerm}`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => console.log(err));
 };
 
 export const LocationTransform = (result) => {
