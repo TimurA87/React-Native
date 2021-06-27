@@ -11,3 +11,5 @@ npm-debug.*
 
 # macOS
 .DS_Store
+
+*/node_modules/**/*
